@@ -1,0 +1,243 @@
+/* Estilo inspirado no GitHub Dark Mode */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #161b22;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  
+  header h1 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: #ffffff;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+  }
+  
+  .content {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  .profile-pic img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #30363d;
+    background-color: #8b949e;
+  }
+  
+  .info h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #ffffff;
+  }
+  
+  .info h3 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: #58a6ff;
+  }
+  
+  .dob {
+    font-style: italic;
+    color: #8b949e;
+    margin-bottom: 15px;
+  }
+  
+  .info p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .social-links {
+    margin: 10px 0 20px 0;
+  }
+  
+  .social-links a {
+    color: #c9d1d9;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+    text-decoration: none; 
+  }
+  
+  .social-links a:hover {
+    color: #58a6ff;
+  }
+  
+  /* ===== Formação Acadêmica ===== */
+.academic {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #161b22;
+    border-radius: 10px;
+  }
+  
+  .academic h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+  }
+  
+  .academic-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: #0d1117;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #30363d;
+    transition: transform 0.2s;
+  }
+  
+  .academic-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .academic-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+    background-color: #30363d;
+  }
+  
+  .academic-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #58a6ff;
+  }
+  
+  .academic-info .degree {
+    margin: 5px 0;
+    font-weight: bold;
+    color: #c9d1d9;
+  }
+  
+  .academic-info .date {
+    font-size: 0.9rem;
+    color: #8b949e;
+  }
+  
+  .academic-info .skills {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #c9d1d9;
+  }
+  
+  .academic-info .description {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #c9d1d9;
+    line-height: 1.5;
+  }
+
+  /* ===== Experiência Profissional ===== */
+.experience {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #161b22;
+    border-radius: 10px;
+  }
+  
+  .experience h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+  }
+  
+  .experience-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: #0d1117;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #30363d;
+    transition: transform 0.2s;
+  }
+  
+  .experience-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .experience-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+    background-color: #30363d;
+  }
+  
+  .experience-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #58a6ff;
+  }
+  
+  .experience-info .company {
+    margin: 5px 0;
+    font-weight: bold;
+    color: #c9d1d9;
+  }
+  
+  .experience-info .date,
+  .experience-info .location {
+    font-size: 0.9rem;
+    color: #8b949e;
+  }
+  
+  .experience-info .description {
+    margin: 15px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .project {
+    margin-bottom: 20px;
+  }
+  
+  .project h4 {
+    margin: 10px 0 5px 0;
+    font-size: 1rem;
+    color: #ffffff;
+  }
+  
+  .project p {
+    font-size: 0.95rem;
+    color: #c9d1d9;
+    margin-bottom: 8px;
+  }
+  
+  .project ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #c9d1d9;
+    font-size: 0.9rem;
+  }
+  
+  .project ul li {
+    margin-bottom: 5px;
+  }
+  
+
+  
