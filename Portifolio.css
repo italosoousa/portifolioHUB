@@ -1,243 +1,498 @@
-/* Estilo inspirado no GitHub Dark Mode */
+/* ===========================
+   Tema: GitHub Dark-like
+   Layout: vertical (uma seção após a outra)
+   Autor: Italo (você manda!)
+   =========================== */
+
+/* Paleta base (GitHub Dark aproximada) */
+:root {
+  --bg: #0d1117; /* page background */
+  --surface: #161b22; /* cards/sections */
+  --border: #30363d; /* card borders/dividers */
+  --text: #c9d1d9; /* body text */
+  --muted: #8b949e; /* secondary text */
+  --link: #58a6ff; /* links */
+  --link-hover: #79c0ff; /* link hover */
+  --accent: #238636; /* green accent (github style) */
+  --danger: #f85149; /* red accent */
+  --radius: 12px; /* border radius padrão */
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Reset básico e tipografia */
+* {
+  box-sizing: border-box;
+}
+html,
 body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #0d1117;
-    color: #c9d1d9;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Ubuntu, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Links e foco acessível */
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Container centralizado e layout vertical por padrão */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+}
+
+/* Header fixo sutil */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  background: rgba(13, 17, 23, 0.75);
+  border-bottom: 1px solid var(--border);
+}
+header h1 {
+  margin: 0;
+  padding: 16px 0;
+  font-size: 24px;
+  letter-spacing: 0.2px;
+}
+
+/* Conteúdo em coluna (uma seção após a outra) */
+.content {
+  display: block; /* garante fluxo vertical */
+  margin-top: 24px;
+}
+.content > section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px; /* espaço ENTRE as seções */
+}
+
+/* Títulos das seções */
+.content > section > h2 {
+  margin: 0 0 14px 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* ---------------------------
+   SECTION: PROFILE
+   --------------------------- */
+.profile {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.profile-pic img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+.profile .info h2 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  line-height: 1.25;
+}
+.profile .info h3 {
+  margin: 0 0 4px;
+  font-weight: 600;
+  color: var(--link);
+  font-size: 16px;
+}
+.profile .info .dob {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Social icons estilo pill */
+.social-links {
+  display: flex;
+  gap: 10px;
+  margin: 6px 0 14px;
+}
+.social-links a {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #0f141a;
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.social-links a:hover {
+  transform: translateY(-1px);
+  background: #0b2239;
+  border-color: #2b5a85;
+}
+
+/* Parágrafos do perfil */
+.profile .info p {
+  margin: 0 0 10px;
+  color: var(--text);
+}
+.profile .info p + p {
+  margin-top: 6px;
+}
+
+/* ---------------------------
+   SECTION: ACADEMIC
+   --------------------------- */
+.academic-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 14px;
+  padding: 14px;
+  background: #0f1419;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin: 12px 0;
+}
+.academic-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid #222b33;
+}
+.academic-info h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.academic-info .degree,
+.academic-info .date,
+.academic-info .skills,
+.academic-info .description {
+  margin: 2px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.academic-info .skills {
+  color: #7ee787;
+} /* verdinho GitHub */
+
+/* ---------------------------
+   SECTION: EXPERIENCE
+   --------------------------- */
+.experience-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 14px;
+  padding: 14px;
+  background: #0f1419;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin: 12px 0;
+}
+.experience-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid #222b33;
+}
+.experience-info h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+.experience-info .company,
+.experience-info .date,
+.experience-info .location {
+  margin: 2px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Subprojetos dentro da experiência */
+.project {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.project h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: #d2a8ff; /* roxinho GitHub */
+}
+.project p {
+  margin: 0 0 8px;
+  color: var(--text);
+}
+.project ul {
+  margin: 0 0 8px 18px;
+  padding: 0;
+}
+.project ul li {
+  margin: 4px 0;
+  color: var(--muted);
+}
+
+/* Divisores suaves (se quiser usar) */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+/* ===========================
+   Projects (Pinned Repos)
+   =========================== */
+
+.projects-pinned {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.projects-pinned h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.pinned-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* Card */
+.repo-card {
+  background: #0f1419;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  transition: border-color 0.15s ease, transform 0.06s ease;
+}
+.repo-card:hover {
+  border-color: #3b434c;
+  transform: translateY(-1px);
+}
+
+/* Cabeçalho */
+.repo-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.repo-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0; /* evita quebra bizarra */
+}
+.repo-title i {
+  color: var(--muted);
+}
+.repo-link {
+  font-weight: 700;
+  color: var(--link);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.repo-link:hover {
+  text-decoration: underline;
+}
+.repo-badge {
+  margin-left: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  background: #0d1117;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.repo-menu {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  border-radius: 8px;
+  padding: 6px 8px;
+  cursor: default; /* decorativo */
+}
+
+/* Descrição */
+.repo-desc {
+  margin: 6px 0 8px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Tópicos (tags) */
+.repo-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+.repo-topics li {
+  font-size: 12px;
+  color: var(--text);
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+/* Rodapé/meta */
+.repo-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+.repo-meta .lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-dot {
+  --lang-color: #8b949e; /* default */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--lang-color);
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.meta-link {
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.meta-link:hover {
+  color: var(--text);
+}
+
+/* Responsivo */
+@media (max-width: 1100px) {
+  .pinned-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .container {
-    max-width: 900px;
-    margin: 40px auto;
-    background-color: #161b22;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+@media (max-width: 680px) {
+  .pinned-grid {
+    grid-template-columns: 1fr;
   }
-  
-  header h1 {
-    margin-top: 0;
-    font-size: 2rem;
-    color: #ffffff;
-    border-bottom: 1px solid #30363d;
-    padding-bottom: 10px;
+}
+
+/* Impressão */
+@media print {
+  .projects-pinned {
+    background: #fff;
+    border: none;
+    box-shadow: none;
   }
-  
-  .content {
-    display: flex;
-    margin-top: 20px;
-    gap: 20px;
+  .repo-card {
+    break-inside: avoid;
+    border-color: #ddd;
+    background: #fff;
   }
-  
+}
+
+/* ---------------------------
+   RESPONSIVIDADE
+   --------------------------- */
+@media (max-width: 920px) {
+  .profile {
+    grid-template-columns: 120px 1fr;
+  }
   .profile-pic img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid #30363d;
-    background-color: #8b949e;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
   }
-  
-  .info h2 {
-    margin: 0;
-    font-size: 1.8rem;
-    color: #ffffff;
+}
+@media (max-width: 700px) {
+  header h1 {
+    font-size: 20px;
   }
-  
-  .info h3 {
-    margin: 5px 0;
-    font-size: 1.2rem;
-    color: #58a6ff;
+  .content > section {
+    padding: 16px;
   }
-  
-  .dob {
-    font-style: italic;
-    color: #8b949e;
-    margin-bottom: 15px;
+  .profile {
+    grid-template-columns: 1fr; /* empilha imagem e texto */
   }
-  
-  .info p {
-    line-height: 1.6;
-    margin-bottom: 15px;
+  .profile-pic {
+    max-width: 220px;
   }
-  
+  .profile-pic img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------------------------
+   IMPRESSÃO (PDF limpo)
+   --------------------------- */
+@media print {
+  header,
   .social-links {
-    margin: 10px 0 20px 0;
+    display: none !important;
   }
-  
-  .social-links a {
-    color: #c9d1d9;
-    font-size: 1.5rem;
-    margin-right: 15px;
-    transition: color 0.3s;
-    text-decoration: none; 
+  body {
+    background: #fff;
+    color: #000;
   }
-  
-  .social-links a:hover {
-    color: #58a6ff;
+  a {
+    color: #000;
+    text-decoration: none;
   }
-  
-  /* ===== Formação Acadêmica ===== */
-.academic {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #161b22;
-    border-radius: 10px;
+  .container {
+    max-width: 100%;
+    padding: 0 12mm;
   }
-  
-  .academic h2 {
-    margin-bottom: 20px;
-    color: #ffffff;
-    font-size: 1.5rem;
-    border-bottom: 1px solid #30363d;
-    padding-bottom: 10px;
+  .content > section {
+    background: #fff;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 12px;
   }
-  
-  .academic-card {
-    display: flex;
-    align-items: flex-start;
-    background-color: #0d1117;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #30363d;
-    transition: transform 0.2s;
-  }
-  
-  .academic-card:hover {
-    transform: scale(1.01);
-  }
-  
-  .academic-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-right: 15px;
-    background-color: #30363d;
-  }
-  
-  .academic-info h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #58a6ff;
-  }
-  
-  .academic-info .degree {
-    margin: 5px 0;
-    font-weight: bold;
-    color: #c9d1d9;
-  }
-  
-  .academic-info .date {
-    font-size: 0.9rem;
-    color: #8b949e;
-  }
-  
-  .academic-info .skills {
-    margin-top: 8px;
-    font-size: 0.9rem;
-    color: #c9d1d9;
-  }
-  
-  .academic-info .description {
-    margin-top: 10px;
-    font-size: 0.95rem;
-    color: #c9d1d9;
-    line-height: 1.5;
-  }
-
-  /* ===== Experiência Profissional ===== */
-.experience {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #161b22;
-    border-radius: 10px;
-  }
-  
-  .experience h2 {
-    margin-bottom: 20px;
-    color: #ffffff;
-    font-size: 1.5rem;
-    border-bottom: 1px solid #30363d;
-    padding-bottom: 10px;
-  }
-  
+  .academic-card,
   .experience-card {
-    display: flex;
-    align-items: flex-start;
-    background-color: #0d1117;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #30363d;
-    transition: transform 0.2s;
+    break-inside: avoid;
   }
-  
-  .experience-card:hover {
-    transform: scale(1.01);
-  }
-  
-  .experience-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-right: 15px;
-    background-color: #30363d;
-  }
-  
-  .experience-info h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #58a6ff;
-  }
-  
-  .experience-info .company {
-    margin: 5px 0;
-    font-weight: bold;
-    color: #c9d1d9;
-  }
-  
-  .experience-info .date,
-  .experience-info .location {
-    font-size: 0.9rem;
-    color: #8b949e;
-  }
-  
-  .experience-info .description {
-    margin: 15px 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-  
-  .project {
-    margin-bottom: 20px;
-  }
-  
-  .project h4 {
-    margin: 10px 0 5px 0;
-    font-size: 1rem;
-    color: #ffffff;
-  }
-  
-  .project p {
-    font-size: 0.95rem;
-    color: #c9d1d9;
-    margin-bottom: 8px;
-  }
-  
-  .project ul {
-    margin: 0;
-    padding-left: 20px;
-    color: #c9d1d9;
-    font-size: 0.9rem;
-  }
-  
-  .project ul li {
-    margin-bottom: 5px;
-  }
-  
-
-  
+}
