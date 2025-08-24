@@ -496,3 +496,68 @@ hr {
     break-inside: avoid;
   }
 }
+
+/* ===========================
+   Skills Section
+   =========================== */
+
+.skills {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.skills h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.skills-block {
+  margin-bottom: 18px;
+}
+
+.skills-block h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: var(--link);
+}
+
+.skills-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills-list li {
+  font-size: 13.5px;
+  color: var(--text);
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  line-height: 1.4;
+}
+
+.skills .btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0b2239;
+  color: #cfe9ff;
+  text-decoration: none;
+  transition: transform 0.08s ease, background 0.2s ease;
+}
+.skills .btn-link:hover {
+  transform: translateY(-1px);
+  background: #0c2c4c;
+}
