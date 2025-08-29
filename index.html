@@ -12,12 +12,21 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1>Repositório</h1>
+      <header class="site-header">
+        <nav class="nav">
+          <ul>
+            <li><a href="#profile">Perfil</a></li>
+            <li><a href="#academic">Acadêmico</a></li>
+            <li><a href="#experience">Experiência</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#certificados">Certificados</a></li>
+          </ul>
+        </nav>
       </header>
 
       <main class="content">
-        <section class="profile">
+        <section class="profile" id="profile">
           <div class="profile-pic">
             <img src="images/foto_italo.jpeg" alt="Foto minha" />
           </div>
@@ -28,7 +37,7 @@
 
             <div class="social-links" aria-label="Redes sociais">
               <a
-                href="https://instagram.com/SEU_USUARIO"
+                href="https://www.instagram.com/italossousa/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -36,7 +45,7 @@
                 <i class="fab fa-instagram"></i>
               </a>
               <a
-                href="https://linkedin.com/in/SEU_PERFIL"
+                href="https://www.linkedin.com/in/italo-sousa-ab5510275/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -44,7 +53,7 @@
                 <i class="fab fa-linkedin"></i>
               </a>
               <a
-                href="https://github.com/SEU_USUARIO"
+                href="https://github.com/italosoousa"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -52,7 +61,7 @@
                 <i class="fab fa-github"></i>
               </a>
               <a
-                href="mailto:seuemail@gmail.com"
+                href="mailto:italomadeira21@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="E-mail"
@@ -60,6 +69,11 @@
                 <i class="fa-regular fa-envelope"></i>
               </a>
             </div>
+
+            <a class="btn-download" href="Documents/Curriculo-Italo.pdf"
+   download="Curriculo_Italo.pdf" aria-label="Download do Currículo">
+  📄 Download Currículo
+</a>
 
             <p>
               Sou estudante de Análise e Desenvolvimento de Sistemas, apaixonado
@@ -99,7 +113,7 @@
             </p>
           </div>
         </section>
-        <section class="academic">
+        <section class="academic" id="academic">
           <h2>🎓 Formação Acadêmica</h2>
 
           <div class="academic-card">
@@ -139,7 +153,7 @@
           </div>
         </section>
 
-        <section class="experience">
+        <section class="experience" id="experience">
           <h2>💼 Experiência</h2>
 
           <div class="experience-card">
@@ -246,8 +260,9 @@
           class="projects-pinned"
           id="projects"
           aria-labelledby="projects-title"
+          id="projects"
         >
-          <h2 id="projects-title">📌 Projects</h2>
+          <h2 id="projects-title">📌 Projetos</h2>
 
           <div class="pinned-grid" role="list">
             <!-- Card 1 -->
@@ -257,7 +272,7 @@
                   <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                   <a
                     class="repo-link"
-                    href="https://github.com/SEU_USUARIO/gestao-de-cursos-ceub"
+                    href="https://github.com/italosoousa/gestao-de-cursos-ceub"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -320,7 +335,7 @@
                   <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
                   <a
                     class="repo-link"
-                    href="https://github.com/SEU_USUARIO/gestao-de-cursos-ceub"
+                    href="https://github.com/italosoousa/portifolioHUB"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -575,7 +590,7 @@
             <p>
               <a
                 class="btn-link"
-                href="https://docs.google.com/presentation/d/SEU_ID_PUBLICO/preview"
+                href="Documents/Slides-Habilidades.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -590,6 +605,95 @@
     </iframe>
     -->
           </div>
+        </section>
+        <section class="certs" id="certificados" aria-labelledby="c-title">
+          <h2 id="c-title">🎓 Certificados</h2>
+
+          <div class="cert-list" role="list">
+            <!-- Card 1 -->
+            <article class="cert-card" role="listitem">
+              <div class="cert-left">
+                <img
+                  src="images/alura.png"
+                  alt="Logo Alura"
+                  class="cert-logo"
+                />
+              </div>
+              <div class="cert-body">
+                <h3 class="cert-title">
+                  Java: criando a sua primeira aplicação
+                </h3>
+                <div class="cert-issuer">
+                  Emitido por <strong>Alura</strong>
+                </div>
+
+                <div class="cert-meta">
+                  <span class="cert-date">Finalizado em 27 de abril de 2025 </span>
+                  <span class="cert-id"
+                    >Carga Horária: <code>8 Horas</code></span
+                  >
+                </div>
+
+                <div class="cert-actions">
+                  <a
+                    class="cert-link"
+                    href="https://cursos.alura.com.br/certificate/4759c301-f526-47d5-a221-1fa17144af9c?lang"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver credencial
+                  </a>
+                </div>
+
+                <ul class="cert-skills" aria-label="Habilidades relacionadas">
+                  <li>Java</li>
+                  <li>Lógica de Programação</li>
+                  <li>Algoritmos</li>
+                </ul>
+              </div>
+            </article>
+            <!-- Segundo certificado -->
+            <article class="cert-card" role="listitem">
+              <div class="cert-left">
+                <img
+                  src="images/alura.png"
+                  alt="Logo Alura"
+                  class="cert-logo"
+                />
+              </div>
+              <div class="cert-body">
+                <h3 class="cert-title">
+                  Git e GitHub: compartilhando e colaborando em projetos
+                </h3>
+                <div class="cert-issuer">
+                  Emitido por <strong>Alura</strong>
+                </div>
+
+                <div class="cert-meta">
+                  <span class="cert-date">Finalizado em 12 de outubro de 2024 </span>
+                  <span class="cert-id"
+                    >Carga Horária: <code>8 Horas</code></span
+                  >
+                </div>
+
+                <div class="cert-actions">
+                  <a
+                    class="cert-link"
+                    href="https://cursos.alura.com.br/certificate/25726856-5f65-44ca-9cc5-1c40cb93f826?lang"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver credencial
+                  </a>
+                </div>
+
+                <ul class="cert-skills" aria-label="Habilidades relacionadas">
+                  <li>Git</li>
+                  <li>GitHub</li>
+                  <li>Controle de versionamento</li>
+                </ul>
+              </div>
+            </article>
         </section>
       </main>
     </div>
