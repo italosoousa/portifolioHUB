@@ -36,6 +36,6 @@ O portfólio contém as seguintes seções:
 
 ## 📦 Como Acessar o Portfólio
 O portfólio está disponível online através do **GitHub Pages**:  
-🔗 [Clique aqui para acessar](http://italomadeira.com.br/#certificados)  
+🔗 [Clique aqui para acessar](http://italomadeira.com.br/#profile)  
 
 ---
