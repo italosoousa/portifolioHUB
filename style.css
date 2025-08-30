@@ -1,30 +1,31 @@
-/* ===========================
-   Tema: GitHub Dark-like
-   Layout: vertical (uma seção após a outra)
-   Autor: Italo (você manda!)
-   =========================== */
 
-/* Paleta base (GitHub Dark aproximada) */
+/* --------------------------------------------------------------------------
+   PALETA E TOKENS (globais)
+   Usado em todas as sections (cores, radius, sombra)
+   -------------------------------------------------------------------------- */
 :root {
-  --bg: #0d1117; /* page background */
-  --surface: #161b22; /* cards/sections */
-  --border: #30363d; /* card borders/dividers */
-  --text: #c9d1d9; /* body text */
-  --muted: #8b949e; /* secondary text */
-  --link: #58a6ff; /* links */
-  --link-hover: #79c0ff; /* link hover */
-  --accent: #238636; /* green accent (github style) */
-  --danger: #f85149; /* red accent */
-  --radius: 12px; /* border radius padrão */
-  --shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  --bg: #0d1117;        /* fundo da página */
+  --surface: #161b22;   /* cartões/sections */
+  --border: #30363d;    /* bordas/divisores */
+  --text: #c9d1d9;      /* texto padrão */
+  --muted: #8b949e;     /* texto secundário */
+  --link: #58a6ff;      /* links */
+  --link-hover: #79c0ff;/* hover de links */
+  --accent: #238636;    /* verde destaque (estilo GitHub) */
+  --danger: #f85149;    /* vermelho destaque */
+  --radius: 12px;       /* raio padrão */
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.25); /* sombra padrão */
+
+  /* altura do header para compensar âncoras/scroll */
+  --header-h: 72px;
 }
 
-/* Reset básico e tipografia */
-* {
-  box-sizing: border-box;
-}
-html,
-body {
+/* --------------------------------------------------------------------------
+   RESET BÁSICO + TIPOGRAFIA
+   Afeta o documento todo
+   -------------------------------------------------------------------------- */
+* { box-sizing: border-box; }
+html, body {
   margin: 0;
   padding: 0;
   background: var(--bg);
@@ -40,7 +41,10 @@ img {
   display: block;
 }
 
-/* Links e foco acessível */
+/* --------------------------------------------------------------------------
+   LINKS + ACESSIBILIDADE
+   Afeta qualquer link e foco navegável
+   -------------------------------------------------------------------------- */
 a {
   color: var(--link);
   text-decoration: none;
@@ -56,14 +60,102 @@ a:focus {
   border-radius: 6px;
 }
 
-/* Container centralizado e layout vertical por padrão */
+/* --------------------------------------------------------------------------
+   CONTAINER + FLUXO VERTICAL
+   Envolve todas as sections (layout principal em coluna)
+   -------------------------------------------------------------------------- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px 48px;
 }
+.content {
+  display: block;          /* garante fluxo vertical */
+  margin-top: 24px;
+}
+.content > section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;     /* respiro entre as sections */
+}
+.content > section > h2 {
+  margin: 0 0 14px 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
 
-/* Header fixo sutil */
+/* --------------------------------------------------------------------------
+   HEADER FIXO (site-header principal)
+   Usado no topo do site + navegação
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(13, 17, 23, 0.9); /* translúcido */
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 12px 20px;
+  backdrop-filter: blur(6px);
+}
+.site-header .logo {
+  margin: 0;
+  font-size: 20px;
+  color: var(--text);
+}
+
+/* --------------------------------------------------------------------------
+   NAVEGAÇÃO (menu do header)
+   Lista de links horizontais com animação de sublinhado
+   -------------------------------------------------------------------------- */
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+}
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  position: relative;
+  transition: color 0.2s ease;
+}
+.nav a::after {
+  /* underline animado ao hover */
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: var(--link);
+  transition: width 0.3s ease;
+}
+.nav a:hover { color: var(--link); }
+.nav a:hover::after { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   OFFSET DE SCROLL PARA ÂNCORAS
+   Evita que o header cubra títulos ao navegar por hash
+   -------------------------------------------------------------------------- */
+html {
+  scroll-padding-top: var(--header-h);
+  scroll-behavior: smooth; /* opcional: rolagem suave */
+}
+
+/* --------------------------------------------------------------------------
+   HEADER (alternativo do conteúdo)
+   Caso use <header> dentro do .container
+   -------------------------------------------------------------------------- */
 header {
   position: sticky;
   top: 0;
@@ -79,31 +171,20 @@ header h1 {
   letter-spacing: 0.2px;
 }
 
-/* Conteúdo em coluna (uma seção após a outra) */
-.content {
-  display: block; /* garante fluxo vertical */
-  margin-top: 24px;
-}
-.content > section {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
-  margin-bottom: 24px; /* espaço ENTRE as seções */
+/* --------------------------------------------------------------------------
+   DIVISORES (hr)
+   Podem ser usados entre blocos menores dentro das sections
+   -------------------------------------------------------------------------- */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
 }
 
-/* Títulos das seções */
-.content > section > h2 {
-  margin: 0 0 14px 0;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-}
-
-/* ---------------------------
+/* ==========================================================================
    SECTION: PROFILE
-   --------------------------- */
+   Estrutura do perfil (foto + informações)
+   ========================================================================== */
 .profile {
   display: grid;
   grid-template-columns: 180px 1fr;
@@ -134,8 +215,7 @@ header h1 {
   color: var(--muted);
   font-size: 14px;
 }
-
-/* Social icons estilo pill */
+/* ícones/links sociais abaixo do nome */
 .social-links {
   display: flex;
   gap: 10px;
@@ -158,19 +238,17 @@ header h1 {
   background: #0b2239;
   border-color: #2b5a85;
 }
-
-/* Parágrafos do perfil */
+/* parágrafos da bio */
 .profile .info p {
-  margin: 10 0 10px;
+  margin: 10px 0 10px; /* corrigido: adiciona 'px' */
   color: var(--text);
 }
-.profile .info p + p {
-  margin-top: 6px;
-}
+.profile .info p + p { margin-top: 6px; }
 
-/* ---------------------------
+/* ==========================================================================
    SECTION: ACADEMIC
-   --------------------------- */
+   Cartões de formação/graduação
+   ========================================================================== */
 .academic-card {
   display: grid;
   grid-template-columns: 56px 1fr;
@@ -200,13 +278,12 @@ header h1 {
   color: var(--muted);
   font-size: 14px;
 }
-.academic-info .skills {
-  color: #7ee787;
-} /* verdinho GitHub */
+.academic-info .skills { color: #7ee787; } /* verdinho GitHub */
 
-/* ---------------------------
+/* ==========================================================================
    SECTION: EXPERIENCE
-   --------------------------- */
+   Histórico profissional + subprojetos
+   ========================================================================== */
 .experience-card {
   display: grid;
   grid-template-columns: 56px 1fr;
@@ -235,8 +312,7 @@ header h1 {
   color: var(--muted);
   font-size: 14px;
 }
-
-/* Subprojetos dentro da experiência */
+/* subprojetos detalhados dentro de cada experiência */
 .project {
   margin-top: 14px;
   padding-top: 10px;
@@ -260,17 +336,10 @@ header h1 {
   color: var(--muted);
 }
 
-/* Divisores suaves (se quiser usar) */
-hr {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 20px 0;
-}
-
-/* ===========================
-   Projects (Pinned Repos)
-   =========================== */
-
+/* ==========================================================================
+   SECTION: PROJECTS (Pinned Repos)
+   Grade de projetos estilo GitHub
+   ========================================================================== */
 .projects-pinned {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -279,20 +348,17 @@ hr {
   box-shadow: var(--shadow);
   margin-bottom: 24px;
 }
-
 .projects-pinned h2 {
   margin: 0 0 14px;
   font-size: 22px;
   font-weight: 700;
 }
-
 .pinned-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
-
-/* Card */
+/* cartão do repositório */
 .repo-card {
   background: #0f1419;
   border: 1px solid var(--border);
@@ -304,8 +370,7 @@ hr {
   border-color: #3b434c;
   transform: translateY(-1px);
 }
-
-/* Cabeçalho */
+/* cabeçalho do cartão */
 .repo-head {
   display: flex;
   align-items: start;
@@ -317,20 +382,16 @@ hr {
   display: flex;
   align-items: center;
   gap: 8px;
-  min-width: 0; /* evita quebra bizarra */
+  min-width: 0; /* evita quebra estranha */
 }
-.repo-title i {
-  color: var(--muted);
-}
+.repo-title i { color: var(--muted); }
 .repo-link {
   font-weight: 700;
   color: var(--link);
   text-decoration: none;
   overflow-wrap: anywhere;
 }
-.repo-link:hover {
-  text-decoration: underline;
-}
+.repo-link:hover { text-decoration: underline; }
 .repo-badge {
   margin-left: 6px;
   font-size: 12px;
@@ -348,15 +409,13 @@ hr {
   padding: 6px 8px;
   cursor: default; /* decorativo */
 }
-
-/* Descrição */
+/* conteúdo do cartão */
 .repo-desc {
   margin: 6px 0 8px;
   color: var(--text);
   font-size: 14px;
 }
-
-/* Tópicos (tags) */
+/* tópicos/tags */
 .repo-topics {
   display: flex;
   flex-wrap: wrap;
@@ -373,8 +432,7 @@ hr {
   border-radius: 999px;
   padding: 4px 10px;
 }
-
-/* Rodapé/meta */
+/* meta (linguagem, estrelas, etc.) */
 .repo-meta {
   display: flex;
   align-items: center;
@@ -403,104 +461,12 @@ hr {
   align-items: center;
   gap: 6px;
 }
-.meta-link:hover {
-  color: var(--text);
-}
+.meta-link:hover { color: var(--text); }
 
-/* Responsivo */
-@media (max-width: 1100px) {
-  .pinned-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 680px) {
-  .pinned-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Impressão */
-@media print {
-  .projects-pinned {
-    background: #fff;
-    border: none;
-    box-shadow: none;
-  }
-  .repo-card {
-    break-inside: avoid;
-    border-color: #ddd;
-    background: #fff;
-  }
-}
-
-/* ---------------------------
-   RESPONSIVIDADE
-   --------------------------- */
-@media (max-width: 920px) {
-  .profile {
-    grid-template-columns: 120px 1fr;
-  }
-  .profile-pic img {
-    width: 120px;
-    height: 120px;
-    border-radius: 12px;
-  }
-}
-@media (max-width: 700px) {
-  header h1 {
-    font-size: 20px;
-  }
-  .content > section {
-    padding: 16px;
-  }
-  .profile {
-    grid-template-columns: 1fr; /* empilha imagem e texto */
-  }
-  .profile-pic {
-    max-width: 220px;
-  }
-  .profile-pic img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-/* ---------------------------
-   IMPRESSÃO (PDF limpo)
-   --------------------------- */
-@media print {
-  header,
-  .social-links {
-    display: none !important;
-  }
-  body {
-    background: #fff;
-    color: #000;
-  }
-  a {
-    color: #000;
-    text-decoration: none;
-  }
-  .container {
-    max-width: 100%;
-    padding: 0 12mm;
-  }
-  .content > section {
-    background: #fff;
-    border: none;
-    box-shadow: none;
-    margin-bottom: 12px;
-  }
-  .academic-card,
-  .experience-card {
-    break-inside: avoid;
-  }
-}
-
-/* ===========================
-   Skills Section
-   =========================== */
-
+/* ==========================================================================
+   SECTION: SKILLS
+   Bloco de habilidades por categoria
+   ========================================================================== */
 .skills {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -509,23 +475,17 @@ hr {
   box-shadow: var(--shadow);
   margin-bottom: 24px;
 }
-
 .skills h2 {
   margin: 0 0 14px;
   font-size: 22px;
   font-weight: 700;
 }
-
-.skills-block {
-  margin-bottom: 18px;
-}
-
+.skills-block { margin-bottom: 18px; }
 .skills-block h3 {
   margin: 0 0 10px;
   font-size: 18px;
   color: var(--link);
 }
-
 .skills-list {
   list-style: none;
   margin: 0;
@@ -534,7 +494,6 @@ hr {
   flex-wrap: wrap;
   gap: 8px;
 }
-
 .skills-list li {
   font-size: 13.5px;
   color: var(--text);
@@ -544,7 +503,7 @@ hr {
   padding: 6px 12px;
   line-height: 1.4;
 }
-
+/* botão auxiliar (ex.: ver mais) */
 .skills .btn-link {
   display: inline-flex;
   align-items: center;
@@ -562,86 +521,10 @@ hr {
   background: #0c2c4c;
 }
 
-/* ===========================
-   Cabeçalho fixo com navegação
-   =========================== */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(13, 17, 23, 0.9); /* fundo translúcido */
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  padding: 12px 20px;
-  backdrop-filter: blur(6px);
-}
-
-.site-header .logo {
-  margin: 0;
-  font-size: 20px;
-  color: var(--text);
-}
-
-.nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 18px;
-}
-
-.nav a {
-  color: var(--text);
-  text-decoration: none;
-  font-size: 15px;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-/* animação no hover: linha que cresce de baixo pra cima */
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  height: 2px;
-  width: 0;
-  background: var(--link);
-  transition: width 0.3s ease;
-}
-
-.nav a:hover {
-  color: var(--link);
-}
-
-.nav a:hover::after {
-  width: 100%;
-}
-
-/* Responsivo */
-@media (max-width: 700px) {
-  .nav ul {
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-:root {
-  --header-h: 72px;
-} /* ajuste para a altura real do seu header */
-
-html {
-  scroll-padding-top: var(--header-h); /* offset para TODAS as âncoras */
-  scroll-behavior: smooth; /* opcional: rolagem suave */
-}
-
-/* ===========================
-   Certificados (LinkedIn-like)
-   =========================== */
+/* ==========================================================================
+   SECTION: CERTS (Certificados estilo LinkedIn)
+   Lista de certificados com logo, emissor e ações
+   ========================================================================== */
 .certs {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -655,13 +538,11 @@ html {
   font-size: 22px;
   font-weight: 700;
 }
-
 .cert-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
 }
-
 .cert-card {
   display: grid;
   grid-template-columns: 64px 1fr;
@@ -676,7 +557,6 @@ html {
   border-color: #3b434c;
   transform: translateY(-1px);
 }
-
 .cert-logo {
   width: 64px;
   height: 64px;
@@ -685,19 +565,16 @@ html {
   border: 1px solid #222b33;
   background: #0d1117;
 }
-
 .cert-title {
   margin: 0 0 4px;
   font-size: 18px;
   line-height: 1.3;
 }
-
 .cert-issuer {
   color: var(--muted);
   font-size: 14px;
   margin-bottom: 6px;
 }
-
 .cert-meta {
   display: flex;
   flex-wrap: wrap;
@@ -716,10 +593,7 @@ html {
     "Liberation Mono", monospace;
   font-size: 12px;
 }
-
-.cert-actions {
-  margin-bottom: 8px;
-}
+.cert-actions { margin-bottom: 8px; }
 .cert-link {
   display: inline-flex;
   align-items: center;
@@ -737,7 +611,6 @@ html {
   background: #0c2c4c;
   border-color: #2b5a85;
 }
-
 .cert-skills {
   display: flex;
   flex-wrap: wrap;
@@ -754,44 +627,12 @@ html {
   border-radius: 999px;
   padding: 4px 10px;
 }
-
 .cert-note {
   margin-top: 8px;
   color: var(--muted);
   font-size: 12px;
 }
-
-/* Responsivo */
-@media (max-width: 720px) {
-  .cert-card {
-    grid-template-columns: 48px 1fr;
-  }
-  .cert-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-  }
-}
-
-/* Impressão (PDF limpo) */
-@media print {
-  .certs {
-    background: #fff;
-    border: none;
-    box-shadow: none;
-  }
-  .cert-card {
-    break-inside: avoid;
-    background: #fff;
-    border-color: #ddd;
-  }
-  .cert-link {
-    color: #000;
-    background: #fff;
-    border-color: #bbb;
-  }
-}
-
+/* botão extra para downloads de certificados */
 .btn-download {
   padding: 5px 10px;
   font-size: 13px;
@@ -806,4 +647,72 @@ html {
   background: #0c2c4c;
   color: #fff;
   transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVIDADE (breakpoints principais)
+   Ajustes de grid e tipografia para telas menores
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .pinned-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 920px) {
+  .profile { grid-template-columns: 120px 1fr; }
+  .profile-pic img {
+    width: 120px; height: 120px; border-radius: 12px;
+  }
+}
+@media (max-width: 720px) {
+  .cert-card { grid-template-columns: 48px 1fr; }
+  .cert-logo { width: 48px; height: 48px; border-radius: 10px; }
+}
+@media (max-width: 700px) {
+  header h1 { font-size: 20px; }
+  .content > section { padding: 16px; }
+  .profile { grid-template-columns: 1fr; } /* empilha avatar e texto */
+  .profile-pic { max-width: 220px; }
+  .profile-pic img { width: 100%; height: auto; }
+  .nav ul {
+    gap: 12px; flex-wrap: wrap; justify-content: center;
+  }
+}
+@media (max-width: 680px) {
+  .pinned-grid { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   IMPRESSÃO (PDF limpo)
+   Remove elementos desnecessários e retira sombras/cores fortes
+   -------------------------------------------------------------------------- */
+@media print {
+  /* esconde navegação/ícones sociais */
+  .site-header,
+  header,
+  .social-links { display: none !important; }
+
+  /* cores neutras para impressão */
+  body { background: #fff; color: #000; }
+  a { color: #000; text-decoration: none; }
+
+  /* largura total e respiro */
+  .container { max-width: 100%; padding: 0 12mm; }
+
+  /* cartões sem sombra/borda pesada */
+  .content > section {
+    background: #fff;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 12px;
+  }
+  .academic-card,
+  .experience-card,
+  .cert-card,
+  .repo-card { break-inside: avoid; }
+
+  .repo-card,
+  .cert-card { border-color: #ddd; background: #fff; }
+
+  .cert-link {
+    color: #000; background: #fff; border-color: #bbb;
+  }
 }
