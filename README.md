@@ -36,18 +36,6 @@ O portfólio contém as seguintes seções:
 
 ## 📦 Como Acessar o Portfólio
 O portfólio está disponível online através do **GitHub Pages**:  
-🔗 [Clique aqui para acessar](https://seu-usuario.github.io/portfolioHUB/)  
-
-*(substitua `seu-usuario` pelo seu nome de usuário no GitHub)*  
+🔗 [Clique aqui para acessar](http://italomadeira.com.br/#profile)  
 
 ---
-
-## 📌 Próximos Passos
-- Melhorar o design com CSS responsivo.  
-- Adicionar mais projetos com documentação detalhada.  
-- Incluir novos testemunhos e certificações.  
-
----
-
-## ✨ Créditos
-Projeto desenvolvido por **[Seu Nome]** durante o **Bootcamp I (2025)**.  
